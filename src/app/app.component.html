@@ -1,21 +1,30 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="bg-color">
+
+  <div id="showcase">
+    <h1>Xfakt SnackBar</h1>
+  </div>
+
+  <div class="flex-container">
+
+    <div class="dropdown">
+        <button (click)="filterButton($event)" class="dropbtn">Filter</button>
+          <div id="myDropdown" class="dropdown-content">
+            <button (click)="sortAlphabetically()">Alfabetisch</button>
+            <button (click)="removeSnacksWithoutImages()">Geen img</button>
+          </div>
+    </div>
+
+    <!-- <div *ngFor="let snack of snacks | orderBy: ['naam']">{{snack.naam}}</div> -->
+
+    <div class="snack-cards">
+      <div class="card" *ngFor="let snack of snacks">
+        <img src='{{snack.img}}' onError="this.src='https://webber.nl/wp-content/uploads/2016/07/no-img-placeholder.jpg';" width="100%" alt='{{ snack.naam }}'>
+        <h1>{{ snack.naam }}</h1>
+        <h2 class="snack-price">€ {{snack.prijs}}</h2>
+        <p class="snack-info">Ingredienten: Lorem Ipsum </p> 
+      </div>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
 <router-outlet></router-outlet>
